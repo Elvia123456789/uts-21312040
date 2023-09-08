@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('judul')
-Daftar film
+Daftar peran
 @endsection
 
 @push('script')
@@ -18,7 +18,7 @@ Daftar film
 @endpush
 
 @section('content')
-<a class="btn btn-secondary mb-3" href="/film/create">Tambah Data</a>
+<a class="btn btn-secondary mb-3" href="/peran/create">Tambah Data</a>
 <table class="table" id="example1">
   <thead class="thead-dark">
     <tr>
@@ -30,15 +30,15 @@ Daftar film
     </tr>
   </thead>
   <tbody>
-    @forelse ($film as $key => $item)
+    @forelse ($peran as $key => $item)
     <tr>
       <td>{{$key + 1}}</td>
       <td>{{$item->film}}</td>
       <td>{{$item->Cast}}</td>
-      <td>{{$item->Nama}}</td>
+      <td>{{$item->nama}}</td>
       <td>
-      <form action="/film/{{ $item->id }}" method="POST" id="deleteForm">
-        <a href="/film/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+      <form action="/peran/{{ $item->id }}" method="POST" id="deleteForm">
+        <a href="/peran/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
         @csrf
         @method('delete')
         <button type="submit" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" class="btn btn-danger btn-sm">Hapus</button>

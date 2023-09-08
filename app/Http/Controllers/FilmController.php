@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Film;
 use App\Models\Genre;
+use App\Models\Peran;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class FilmController extends Controller
@@ -18,6 +19,9 @@ class FilmController extends Controller
     {
         $film = Film::all();
         return view('film.index', compact('film'));
+
+        $peran = Peran::all();
+        return view('peran.index', compact('peran'));
     }
 
     /**
@@ -30,6 +34,9 @@ class FilmController extends Controller
         //
         $genre = Genre::all();
         return view('film.create', compact('genre'));
+
+        $peran = Peran::all();
+        return view('peran.create', compact('peran'));
     }
 
     /**
